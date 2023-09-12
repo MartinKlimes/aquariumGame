@@ -6,7 +6,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="aquarium w-full">
+  <div class="aquarium w-full h-3/4 bg-green-100">
     <Fish
       v-for="fish in fishes"
       :key="fish.url"
@@ -18,6 +18,8 @@ const props = defineProps({
 <style scoped>
 .aquarium {
   background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   overflow: hidden;
 }
