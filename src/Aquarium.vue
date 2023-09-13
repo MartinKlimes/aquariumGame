@@ -7,6 +7,7 @@ const props = defineProps({
 
 <template>
   <div class="aquarium w-full h-3/4 bg-green-100">
+    <img src="aquarium.png" alt="">
     <Fish
       v-for="fish in fishes"
       :key="fish.url"
