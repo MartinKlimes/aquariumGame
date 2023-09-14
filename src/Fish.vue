@@ -1,10 +1,16 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 import { getRandomInt } from "../composables/randomNumber";
+import { useScoreStore } from "../stores/score";
+import ScoreStatus from "./ScoreStatus.vue";
 
+const store = useScoreStore();
 const props = defineProps({
   fishObj: Object,
 });
+const emit = defineEmits(["removeFish"]);
+
+
 const top = ref(window.innerHeight / 2);
 const left = ref(window.innerWidth / 2);
 const fish = ref(null);
@@ -36,7 +42,7 @@ const moveFish = setInterval(() => {
     xDirection = 1;
     newDirection();
   }
-  if (fishPosition.bottom >= window.innerHeight - 10) {
+  if (fishPosition.bottom >= window.innerHeight - 220) {
     yDirection = -1;
     newDirection();
   }
@@ -67,6 +73,11 @@ function animateHungerStatus() {
     if (width >= 100) {
       clearInterval(animationInterval);
       fishImage.value = "/dead.png";
+      showStatus.value = false;
+      setTimeout(() => {
+        emit("removeFish", props.fishObj.id);
+        store.addDeath()
+      }, 2000);
     }
   }, 10);
 }
@@ -80,6 +91,18 @@ function resetStatus() {
 onMounted(() => {
   animateHungerStatus();
 });
+onUnmounted(() => {
+  clearInterval(moveFish);
+  clearInterval(animationInterval);
+});
+
+watch(() => store.foodStatus,() => {
+  if (fishImage.value === "/dead.png") {
+    return;
+  }
+  resetStatus();
+})
+
 </script>
 
 <template>

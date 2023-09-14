@@ -3,15 +3,18 @@ import Fish from './Fish.vue';
 const props = defineProps({
   fishes: Array,
 });
+
+const emit = defineEmits(["removeFish"]);
 </script>
 
 <template>
-  <div class="aquarium w-full h-3/4 bg-green-100">
+  <div class="aquarium w-full h-full bg-green-100">
     
     <Fish
       v-for="fish in fishes"
       :key="fish.url"
       :fish-obj="fish"
+      @remove-fish="$emit('remove-fish', fish.id)"
     />
   </div>
 </template>
