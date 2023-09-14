@@ -19,7 +19,7 @@ const score = useScoreStore()
           <span>{{score.score}}</span>
         </div>
         <div class="info">
-          <span><img src="dead.png" alt="dead.png" class="w-[30px]"/></span>  
+          <span><img src="/dead.png" alt="dead.png" class="w-[30px]"/></span>  
           <span>{{score.numberOfDeaths }}</span>
         </div>
     </div>

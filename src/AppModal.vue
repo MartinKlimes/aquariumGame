@@ -23,7 +23,7 @@ const finalScore = computed(() => {
         <span>{{ score.score }}</span>
       </div>
       <div class="flex items-center justify-between">
-        <img src="dead.png" alt="dead.png" class="w-[30px]" />
+        <img src="/dead.png" alt="dead.png" class="w-[30px]" />
         <span class="text-red-500 ">{{ score.numberOfDeaths }}</span>
       </div>
     </div>
