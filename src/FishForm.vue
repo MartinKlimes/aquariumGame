@@ -17,7 +17,6 @@ const hungerTime = ref(900);
 function addFish(price) {
   if (selectedFish.value && score.capital >= price) {
     emit("createFish", [selectedFish.value.id, hungerTime.value]);
-    hungerTime.value = 900;
     score.reduceCapital(price);
   }
 }

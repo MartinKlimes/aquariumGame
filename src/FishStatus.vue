@@ -39,7 +39,7 @@ setInterval(() => {
         >
         <img :src="fish.url" :alt="fish.url" />
 
-        <span class="badge badge-outline absolute left-20 w-[80px]">{{ scorePerSecond(fish.id) }}XP/s</span>
+        <span class="badge badge-outline absolute left-20 w-[80px]">{{ scorePerSecond(fish.id) }} XP/s</span>
       </div>
     </div>
  

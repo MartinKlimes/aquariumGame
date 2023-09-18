@@ -10,7 +10,7 @@ let interval;
 function startInterval() {
   interval = setInterval(() => {
     if (dynamicValue.value < 100) {
-      dynamicValue.value += 1;
+      dynamicValue.value += .1;
     } else {
       clearInterval(interval);
     }

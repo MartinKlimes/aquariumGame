@@ -66,7 +66,7 @@ function animateHungerStatus() {
     } else {
       foodControler.value.style.backgroundColor = "green";
     }
-    if (width > 65) {
+    if (width > 60) {
       foodControler.value.style.backgroundColor = "red";
       showStatus.value = true;
     }
